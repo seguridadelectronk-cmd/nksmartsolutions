@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Smart Solutions | Seguridad y Automatización Integral</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a8f;
+            --secondary: #00a8ff;
+            --accent: #ff6b35;
+            --dark: #0a1931;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: rgba(10, 25, 49, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px dashed #00a8ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00a8ff;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            transition: var(--transition);
+        }
+
+        .logo-placeholder:hover {
+            background-color: rgba(0, 168, 255, 0.1);
+        }
+
+        .company-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .company-name span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 49, 0.85), rgba(10, 25, 49, 0.9)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+            margin-top: 90px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #e0e0e0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Servicios Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Tecnología Section */
+        .technology {
+            padding: 100px 0;
+            background: linear-gradient(to right, #0a1931, #1a3a8f);
+            color: white;
+        }
+
+        .technology .section-title h2 {
+            color: white;
+        }
+
+        .tech-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .tech-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tech-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-features {
+            margin-top: 30px;
+        }
+
+        .tech-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-feature i {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .tech-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contacto Section */
+        .contact {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            width: 40px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4,
+        .footer-services h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-services h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-services ul {
+            list-style: none;
+        }
+
+        .footer-services ul li {
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+
+        .footer-services ul li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                padding: 150px 0 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .company-name {
+                font-size: 1.4rem;
+            }
+            
+            .logo-placeholder {
+                width: 140px;
+                height: 50px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-container">
+                  <img src="imagenes/logo_nk.jpg" alt="NK Smart Solutions Logo" class="logo">
+                  <div class="company-name">NK <span>Smart Solutions</span></div>
+            </div>
+                            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Soluciones Inteligentes de Seguridad y Automatización</h1>
+            <p>En NK Smart Solutions transformamos espacios en entornos seguros, inteligentes y eficientes mediante tecnología de vanguardia para hogares, edificios y fábricas.</p>
+            <a href="#contacto" class="cta-button">Solicitar Cotización</a>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558618668-f5c6c151321c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cámaras de seguridad" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Cámaras de Seguridad</h3>
+                        <p>Instalación de sistemas de videovigilancia de última generación con visión nocturna, detección de movimiento y acceso remoto desde cualquier dispositivo.</p>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055897f30b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automatización de portería" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-door-closed"></i>
+                        </div>
+                        <h3>Automatización de Portería</h3>
+                        <p>Sistemas de portería remota para edificios, hogares y fábricas que permiten control de acceso y comunicación visual desde smartphones.</p>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistemas de alarma" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sistemas de Alarma</h3>
+                        <p>Alarmas de última tecnología con automonitoreo desde central de seguridad o desde la app móvil, con notificaciones instantáneas y respuesta rápida.</p>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistemas POS" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-cash-register"></i>
+                        </div>
+                        <h3>Sistemas POS</h3>
+                        <p>Instalación de sistemas punto de venta para tiendas de todo tipo, integrados con gestión de inventario, facturación electrónica y reportes en tiempo real.</p>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistemas de red" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Sistemas de Red</h3>
+                        <p>Diseño e instalación de infraestructura de red para oficinas, garantizando conectividad estable, seguridad de datos y administración centralizada.</p>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Soluciones integradas" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Soluciones Integradas</h3>
+                        <p>Integración de todos nuestros sistemas para crear entornos completamente automatizados, seguros y eficientes adaptados a cada necesidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnología Section -->
+    <section class="technology" id="tecnologia">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tecnología de Vanguardia</h2>
+            </div>
+            
+            <div class="tech-content">
+                <div class="tech-text">
+                    <h3>Innovación al Servicio de la Seguridad</h3>
+                    <p>En NK Smart Solutions combinamos hardware de última generación con software inteligente para ofrecer soluciones completas que se adaptan a las necesidades de cada cliente.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <h4>Control desde App Móvil</h4>
+                                <p>Gestiona todos tus sistemas de seguridad y automatización desde una única aplicación intuitiva.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature">
+                            <i class="fas fa-cloud"></i>
+                            <div>
+                                <h4>Monitoreo en la Nube</h4>
+                                <p>Almacenamiento seguro en la nube y acceso remoto a tus sistemas desde cualquier lugar.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h4>Automatización Inteligente</h4>
+                                <p>Sistemas que aprenden de tus hábitos y se adaptan para ofrecer la máxima eficiencia y comodidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-image">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tecnología inteligente">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Transforma tu espacio con tecnología inteligente</h3>
+                    <p>Estamos listos para asesorarte y proporcionarte la solución perfecta para tus necesidades de seguridad y automatización.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Servicios en toda el área metropolitana y a nivel nacional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+57 302 580 9744</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>seguridadelectronk@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nombre completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" placeholder="Correo electrónico" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" placeholder="Teléfono" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Selecciona un servicio</option>
+                                <option value="camaras">Cámaras de Seguridad</option>
+                                <option value="porteria">Automatización de Portería</option>
+                                <option value="alarmas">Sistemas de Alarma</option>
+                                <option value="pos">Sistemas POS</option>
+                                <option value="redes">Sistemas de Red</option>
+                                <option value="integrado">Solución Integrada</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Describe tu proyecto o consulta"></textarea>
+                        </div>
+                        
+                        <button type="submit">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">NK <span>Smart Solutions</span></div>
+                    <p>Líderes en soluciones tecnológicas de seguridad y automatización para hogares, edificios y fábricas. Transformamos espacios comunes en entornos inteligentes y seguros.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#tecnologia">Tecnología</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Nuestros Servicios</h4>
+                    <ul>
+                        <li><i class="fas fa-video"></i> Cámaras de Seguridad</li>
+                        <li><i class="fas fa-door-closed"></i> Automatización de Portería</li>
+                        <li><i class="fas fa-shield-alt"></i> Sistemas de Alarma</li>
+                        <li><i class="fas fa-cash-register"></i> Sistemas POS</li>
+                        <li><i class="fas fa-network-wired"></i> Sistemas de Red</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 NK Smart Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Formulario de contacto
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Te responderemos en breve.');
+            contactForm.reset();
+        });
+        
+        // Efecto scroll suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Cambiar estilo del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(10, 25, 49, 0.98)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(10, 25, 49, 0.95)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
